@@ -118,15 +118,19 @@
                            (with-rpc (refresh rows cols t)
                              (chain this (set-state (create matrix rpc-result))))
                            (set-interval (@ this refresh-matrix) 1000)))
-  #jsx(:table ((style (create "border-collapse" "collapse")))
-              (chain (local-state matrix)
-                     (map 
-                      (lambda (row)
-                        (:tr () 
-                             (chain row 
-                                    (map 
-                                     (lambda (cell)
-                                       (:board-cell ((size 10) (status cell))))))))))))
+  #jsx(:div 
+       ()
+       (:a ((href "http://en.wikipedia.org/wiki/Conway's_Game_of_Life"))
+           "Wikipedia for Conway's Game of Life")
+       (:table ((style (create "border-collapse" "collapse")))
+               (chain (local-state matrix)
+                      (map 
+                       (lambda (row)
+                         (:tr () 
+                              (chain row 
+                                     (map 
+                                      (lambda (cell)
+                                        (:board-cell ((size 10) (status cell)))))))))))))
 
 
 (def-realispic-app (game-of-life :title "Conway's Game of Life"
