@@ -4,7 +4,8 @@
   (:nicknames #:game-of-life)
   (:use #:cl
         #:parenscript
-        #:realispic))
+        #:realispic)
+  (:export #:game-of-life))
 
 (in-package #:breakds.game-of-life)
 
