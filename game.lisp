@@ -110,7 +110,7 @@
                                                   "black"))))))
 
             
-(def-widget board (rows cols)
+(def-widget board (rows cols cell-size)
     ((state (matrix (array (array 0 1) (array 1 0))))
      (refresh-matrix ()
                      (with-rpc (refresh rows cols false)
@@ -131,14 +131,14 @@
                               (chain row 
                                      (map 
                                       (lambda (cell)
-                                        (:board-cell ((size 10) (status cell)))))))))))))
+                                        (:board-cell ((size cell-size) (status cell)))))))))))))
 
 
 (def-realispic-app (game-of-life :title "Conway's Game of Life"
                                  :libs ("http://fb.me/react-0.10.0.js"
 				  	 "http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
                                  :port 14387)
-  #jsx(:board ((rows 20) (cols 20))))
+  #jsx(:board ((rows 20) (cols 20) (cell-size 20))))
                                         
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
