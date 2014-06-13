@@ -102,13 +102,12 @@
 
 (def-widget board-cell (size status)
     ()
-  #jsx(:td ((style (create "width" (+ size "px")
-                           "height" (+ size "px")
-                           "border" "1px solid black"
-                           "background-color" (if (= 0 status)
-                                                  "white"
-                                                  "black"))))))
-
+  #jsx(:td ((style :width (+ size "px")
+                   :height (+ size "px")
+                   :border "1px solid black"
+                   :background-color (if (= 0 status)
+                                         "white"
+                                         "black")))))
             
 (def-widget board (rows cols cell-size)
     ((state (matrix (array (array 0 1) (array 1 0))))
@@ -123,7 +122,7 @@
        ()
        (:a ((href "http://en.wikipedia.org/wiki/Conway's_Game_of_Life"))
            "Wikipedia for Conway's Game of Life")
-       (:table ((style (create "border-collapse" "collapse")))
+       (:table ((style :border-collapse "collapse"))
                (chain (local-state matrix)
                       (map 
                        (lambda (row)
