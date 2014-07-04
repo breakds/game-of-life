@@ -135,7 +135,7 @@
 
 (def-realispic-app (game-of-life :title "Conway's Game of Life"
                                  :libs ("http://fb.me/react-0.10.0.js"
-				  	 "http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+					"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
                                  :port 14387)
   #jsx(:board ((rows 20) (cols 20) (cell-size 20))))
                                         
